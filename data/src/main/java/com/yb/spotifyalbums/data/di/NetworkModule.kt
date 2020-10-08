@@ -1,5 +1,7 @@
 package com.yb.spotifyalbums.data.di
 
+import com.yb.spotifyalbums.data.remote.AlbumService
+import com.yb.spotifyalbums.data.remote.NewReleasesService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -19,6 +21,14 @@ class NetworkModule {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideNewReleasesService(retrofit: Retrofit): NewReleasesService = retrofit.create(NewReleasesService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideAlbumService(retrofit: Retrofit): AlbumService = retrofit.create(AlbumService::class.java)
 
     companion object {
         private const val BASE_URL = "https://api.spotify.com/"
