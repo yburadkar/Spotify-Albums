@@ -1,4 +1,4 @@
-package com.yb.spotifyalbums.domain
+package com.yb.spotifyalbums.domain.repos
 
 import com.yb.spotifyalbums.domain.models.Albums
 import com.yb.spotifyalbums.domain.models.Optional

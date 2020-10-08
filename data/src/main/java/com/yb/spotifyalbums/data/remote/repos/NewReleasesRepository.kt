@@ -2,7 +2,7 @@ package com.yb.spotifyalbums.data.remote.repos
 
 import com.yb.spotifyalbums.data.helpers.asOptional
 import com.yb.spotifyalbums.data.remote.NewReleasesService
-import com.yb.spotifyalbums.domain.INewReleasesRepository
+import com.yb.spotifyalbums.domain.repos.INewReleasesRepository
 import com.yb.spotifyalbums.domain.models.Albums
 import com.yb.spotifyalbums.domain.models.Optional
 import io.reactivex.Single

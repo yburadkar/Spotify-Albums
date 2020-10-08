@@ -2,8 +2,10 @@ package com.yb.spotifyalbums.data.di
 
 import com.yb.spotifyalbums.data.remote.AlbumService
 import com.yb.spotifyalbums.data.remote.NewReleasesService
+import com.yb.spotifyalbums.data.remote.repos.AlbumRepository
 import com.yb.spotifyalbums.data.remote.repos.NewReleasesRepository
-import com.yb.spotifyalbums.domain.INewReleasesRepository
+import com.yb.spotifyalbums.domain.repos.IAlbumRepository
+import com.yb.spotifyalbums.domain.repos.INewReleasesRepository
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -35,6 +37,10 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideNewReleasesRepository(newReleasesRepository: NewReleasesRepository): INewReleasesRepository = newReleasesRepository
+
+    @Singleton
+    @Provides
+    fun provideAlbumRepository(albumRepository: AlbumRepository): IAlbumRepository = albumRepository
 
     companion object {
         private const val BASE_URL = "https://api.spotify.com/"
