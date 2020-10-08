@@ -4,8 +4,9 @@ import com.yb.spotifyalbums.data.remote.AlbumService
 import com.yb.spotifyalbums.domain.repos.IAlbumRepository
 import com.yb.spotifyalbums.domain.models.Album
 import io.reactivex.Single
+import javax.inject.Inject
 
-class AlbumRepository(
+class AlbumRepository @Inject constructor(
     private val albumService: AlbumService
 ) : IAlbumRepository {
 
