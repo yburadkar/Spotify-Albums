@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.yb.spotifyalbums.App
 import com.yb.spotifyalbums.R
 import com.yb.spotifyalbums.databinding.ActivityNewReleasesBinding
 import com.yb.spotifyalbums.di.ViewModelFactory
 import com.yb.spotifyalbums.domain.models.SimpleAlbum
+import com.yb.spotifyalbums.features.album.AlbumActivity
 import com.yb.spotifyalbums.helpers.Resource
 import com.yb.spotifyalbums.helpers.ResourceStatus
+import com.yb.spotifyalbums.helpers.showSnackbar
 import com.yb.spotifyalbums.models.UiAlbum
 import javax.inject.Inject
 
@@ -47,22 +48,16 @@ class NewReleasesActivity : AppCompatActivity() {
     }
 
     private fun showUserMessages(status: ResourceStatus) {
-        if (status == ResourceStatus.ERROR) showSnackBar(getString(R.string.loading_error_message))
         with(binding) {
+            if (status == ResourceStatus.ERROR) root.showSnackbar(getString(R.string.loading_error_message))
             srlAlbums.isRefreshing = status == ResourceStatus.LOADING
         }
-    }
-
-    private fun showSnackBar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
-        Snackbar.make(binding.root, message, duration).show()
     }
 
     private fun setUpViews() {
         albumAdapter = AlbumAdapter(
             shareAction = { shareAlbumLink(it) },
-            albumClickAction = {
-                //TODO
-            },
+            albumClickAction = { startActivity(AlbumActivity.getIntent(this, it)) },
             scrollToEndAction = { viewModel.loadNewReleases() }
         )
         with(binding) {
