@@ -42,6 +42,7 @@ class AlbumActivity : AppCompatActivity() {
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
+            title = getString(R.string.album_details_actionbar_title)
         }
     }
 
@@ -57,7 +58,7 @@ class AlbumActivity : AppCompatActivity() {
                     Picasso.get().load(it.images?.first()?.url).into(albumCover)
                     albumName.text = it.name
                     releaseDate.text = it.releaseDate
-                    label.text = it.label
+                    albumLabel.text = it.label
                     trackCount.text = it.totalTracks.toString()
                 }
                 showArtists(it.artists ?: emptyList())

@@ -5,4 +5,5 @@
     <string name="loading_error_message">Failed to load new albums</string>
     <string name="artists_label">Artists</string>
     <string name="album_cover_content_desc">album cover</string>
+    <string name="album_details_actionbar_title">Album Details</string>
 </resources>
