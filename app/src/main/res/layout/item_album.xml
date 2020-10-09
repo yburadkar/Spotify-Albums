@@ -28,13 +28,11 @@
 
         <TextView
             android:id="@+id/name"
+            style="@style/TitleText.Normal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toStartOf="@id/share"
             app:layout_constraintStart_toEndOf="@id/thumbnail"
             app:layout_constraintTop_toTopOf="parent"
@@ -43,14 +41,12 @@
 
         <TextView
             android:id="@+id/release_date"
+            style="@style/BodyTextNormal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@id/share"
-            app:layout_constraintStart_toEndOf="@id/thumbnail"
+            app:layout_constraintEnd_toEndOf="@id/name"
+            app:layout_constraintStart_toStartOf="@id/name"
             app:layout_constraintTop_toBottomOf="@id/name"
             tools:text="2020-10-08"
             />
@@ -59,24 +55,24 @@
             android:id="@+id/share"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:padding="8dp"
             android:contentDescription="@string/share_button_content_desc"
+            android:padding="8dp"
             android:src="@drawable/ic_share"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/colorPrimary"
+            app:tint="?attr/colorPrimary"
             />
 
         <TextView
             android:id="@+id/position"
+            style="@style/BodyTextSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/share"
             app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="8dp"
-            android:textSize="12sp"
             tools:text="#100"
             />
 

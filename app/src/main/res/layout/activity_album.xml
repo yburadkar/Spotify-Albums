@@ -14,9 +14,9 @@
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/album_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/album_container"
             android:paddingStart="16dp"
             android:paddingTop="8dp"
             android:paddingEnd="16dp"
@@ -38,12 +38,10 @@
 
             <TextView
                 android:id="@+id/album_name"
+                style="@style/TitleText.Large"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-            android:textColor="@color/colorPrimary"
-                android:textSize="30sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/album_cover"
@@ -52,13 +50,13 @@
 
             <TextView
                 android:id="@+id/release_date"
+                style="@style/BodyTextLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:drawablePadding="4dp"
-                android:textSize="16sp"
                 app:drawableStartCompat="@drawable/ic_date"
-                app:drawableTint="@color/colorPrimary"
+                app:drawableTint="?attr/colorPrimary"
                 app:layout_constraintStart_toStartOf="@id/album_name"
                 app:layout_constraintTop_toBottomOf="@id/album_name"
                 tools:text="2020-10-09"
@@ -66,14 +64,14 @@
 
             <TextView
                 android:id="@+id/album_label"
+                style="@style/BodyTextLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:drawablePadding="4dp"
-                android:textSize="16sp"
                 app:drawableStartCompat="@drawable/ic_tag"
-                app:drawableTint="@color/colorPrimary"
+                app:drawableTint="?attr/colorPrimary"
                 app:layout_constraintStart_toStartOf="@id/album_name"
                 app:layout_constraintTop_toBottomOf="@id/release_date"
                 tools:text="narolane"
@@ -81,13 +79,14 @@
 
             <TextView
                 android:id="@+id/track_count"
+                style="@style/BodyTextLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:drawablePadding="4dp"
                 app:drawableStartCompat="@drawable/ic_track"
-                app:drawableTint="@color/colorPrimary"
+                app:drawableTint="?attr/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@id/album_label"
@@ -97,13 +96,11 @@
 
             <TextView
                 android:id="@+id/artists_label"
+                style="@style/TitleText.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/artists_label"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
                 app:layout_constraintStart_toStartOf="@id/album_name"
                 app:layout_constraintTop_toBottomOf="@id/album_label"
                 />
@@ -120,16 +117,16 @@
                 />
 
             <ProgressBar
+                android:id="@+id/loading_indicator"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:id="@+id/loading_indicator"
+                android:progressTint="?attr/colorPrimary"
                 android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible"
-                android:progressTint="@color/colorPrimary"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

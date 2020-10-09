@@ -1,11 +1,39 @@
 <resources>
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/purple</item>
         <item name="colorPrimaryDark">@color/dark_purple</item>
         <item name="colorSecondary">@color/aqua</item>
         <item name="android:colorBackground">@color/light_grey</item>
         <item name="colorAccent">@color/aqua</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TitleText.Large">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="TitleText.Normal">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TitleText.Small">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BodyTextLarge">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BodyTextNormal">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BodyTextSmall">
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>
