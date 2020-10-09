@@ -1,5 +1,6 @@
 package com.yb.spotifyalbums.features.newreleases
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.viewModels
@@ -58,9 +59,7 @@ class NewReleasesActivity : AppCompatActivity() {
 
     private fun setUpViews() {
         albumAdapter = AlbumAdapter(
-            shareAction = {
-                //TODO
-            },
+            shareAction = { shareAlbumLink(it) },
             albumClickAction = {
                 //TODO
             }
@@ -73,6 +72,16 @@ class NewReleasesActivity : AppCompatActivity() {
             }
             srlAlbums.setOnRefreshListener { viewModel.reloadReleases() }
         }
+    }
+
+    private fun shareAlbumLink(albumUrl: String) {
+        val intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, albumUrl)
+        }
+        val chooser = Intent.createChooser(intent, "Share Album link")
+        if (intent.resolveActivity(packageManager) != null) startActivity(chooser)
     }
 
     private fun inject() {
