@@ -2,6 +2,7 @@ package com.yb.spotifyalbums.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.yb.spotifyalbums.features.album.AlbumViewModel
 import com.yb.spotifyalbums.features.newreleases.NewReleasesViewModel
 import dagger.Binds
 import dagger.Module
@@ -17,5 +18,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(NewReleasesViewModel::class)
     abstract fun bindNewReleasesViewModel(viewModel: NewReleasesViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AlbumViewModel::class)
+    abstract fun bindAlbumViewModel(viewModel: AlbumViewModel): ViewModel
 
 }
