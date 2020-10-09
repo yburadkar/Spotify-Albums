@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.TextViewCompat
 import com.squareup.picasso.Picasso
 import com.yb.spotifyalbums.App
 import com.yb.spotifyalbums.R
@@ -71,6 +72,7 @@ class AlbumActivity : AppCompatActivity() {
         artists.forEach {
             val textView = TextView(this)
             textView.text = it.name
+            TextViewCompat.setTextAppearance(textView, R.style.BodyTextLarge)
             binding.artistList.addView(textView)
         }
     }
