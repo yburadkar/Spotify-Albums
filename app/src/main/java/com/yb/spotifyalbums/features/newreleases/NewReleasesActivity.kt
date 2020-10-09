@@ -62,7 +62,8 @@ class NewReleasesActivity : AppCompatActivity() {
             shareAction = { shareAlbumLink(it) },
             albumClickAction = {
                 //TODO
-            }
+            },
+            scrollToEndAction = { viewModel.loadNewReleases() }
         )
         with(binding) {
             rvAlbums.apply {
