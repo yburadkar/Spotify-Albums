@@ -5,7 +5,7 @@ import com.yb.spotifyalbums.di.AppComponent
 import com.yb.spotifyalbums.di.DaggerAppComponent
 import timber.log.Timber
 
-class App: Application() {
+class App : Application() {
 
     lateinit var appComponent: AppComponent
 
@@ -20,6 +20,6 @@ class App: Application() {
     }
 
     private fun initTimber() {
-        if(BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
+        if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
     }
 }

@@ -8,17 +8,17 @@
     >
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl_albums"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/srl_albums"
         >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_albums"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="8dp"
             android:clipToPadding="false"
+            android:paddingBottom="8dp"
             />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

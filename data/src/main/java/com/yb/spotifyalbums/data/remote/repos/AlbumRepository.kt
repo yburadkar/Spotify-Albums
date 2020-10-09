@@ -1,8 +1,8 @@
 package com.yb.spotifyalbums.data.remote.repos
 
 import com.yb.spotifyalbums.data.remote.AlbumService
-import com.yb.spotifyalbums.domain.repos.IAlbumRepository
 import com.yb.spotifyalbums.domain.models.Album
+import com.yb.spotifyalbums.domain.repos.IAlbumRepository
 import io.reactivex.Single
 import javax.inject.Inject
 

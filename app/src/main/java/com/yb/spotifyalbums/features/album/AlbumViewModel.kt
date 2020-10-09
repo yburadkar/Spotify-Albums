@@ -16,10 +16,10 @@ class AlbumViewModel @Inject constructor(
     private val albumRepo: IAlbumRepository,
     @Named("io") private val io: Scheduler,
     @Named("ui") private val ui: Scheduler
-): DisposingViewModel() {
+) : DisposingViewModel() {
 
     private val _album = MutableLiveData<Resource<Album>>()
-    val album : LiveData<Resource<Album>> = _album
+    val album: LiveData<Resource<Album>> = _album
 
     fun getAlbumDetails(id: String) {
         albumRepo.getAlbumDetails(id)

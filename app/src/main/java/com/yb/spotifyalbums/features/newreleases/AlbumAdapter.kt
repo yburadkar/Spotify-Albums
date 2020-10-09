@@ -24,7 +24,7 @@ class AlbumAdapter(
 
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         holder.bind(getItem(position))
-        if(currentList.size - position == 5) scrollToEndAction.invoke()
+        if (currentList.size - position == 5) scrollToEndAction.invoke()
     }
 
     inner class AlbumViewHolder(

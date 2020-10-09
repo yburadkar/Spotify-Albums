@@ -30,26 +30,27 @@ class NewReleasesViewModel @Inject constructor(
     }
 
     fun loadNewReleases(country: String = "GB") {
-        if(offset + limit <= total)
-        newReleasesRepo.getNewReleases(country, offset, limit)
-            .doOnSubscribe { _releases.postValue(Resource.loading(_releases.value?.data)) }
-            .subscribeOn(io)
-            .observeOn(ui)
-            .subscribeBy(
-                onError = {
-                    _releases.value = Resource.error(data = _releases.value?.data, error = it)
-                },
-                onSuccess = {
-                    val items = it.value?.items ?: emptyList()
-                    Timber.d("Received ${items.size} albums")
-                    _releases.value = Resource.success(data = _releases.value?.data?.apply { addAll(items) })
-                    it.value?.let { albums ->
-                        total = albums.total ?: limit
-                        offset += albums.items?.size ?: 0
-                        Timber.d("offset = $offset, limit = $limit, total = $total")
+        if (offset + limit <= total) {
+            newReleasesRepo.getNewReleases(country, offset, limit)
+                .doOnSubscribe { _releases.postValue(Resource.loading(_releases.value?.data)) }
+                .subscribeOn(io)
+                .observeOn(ui)
+                .subscribeBy(
+                    onError = {
+                        _releases.value = Resource.error(data = _releases.value?.data, error = it)
+                    },
+                    onSuccess = {
+                        val items = it.value?.items ?: emptyList()
+                        Timber.d("Received ${items.size} albums")
+                        _releases.value = Resource.success(data = _releases.value?.data?.apply { addAll(items) })
+                        it.value?.let { albums ->
+                            total = albums.total ?: limit
+                            offset += albums.items?.size ?: 0
+                            Timber.d("offset = $offset, limit = $limit, total = $total")
+                        }
                     }
-                }
-            ).addTo(disposables)
+                ).addTo(disposables)
+        }
     }
 
     fun reloadReleases() {
