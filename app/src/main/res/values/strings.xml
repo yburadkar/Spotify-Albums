@@ -2,4 +2,5 @@
     <string name="app_name">Spotify Albums</string>
     <string name="album_thumbnail_content_desc">album thumbnail</string>
     <string name="share_button_content_desc">share button</string>
+    <string name="loading_error_message">Failed to load new albums</string>
 </resources>

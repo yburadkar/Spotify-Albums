@@ -22,12 +22,14 @@ class NewReleasesViewModel @Inject constructor(
     val releases: LiveData<Resource<List<SimpleAlbum>>> = _releases
     private var offset = 0
     private val limit = 20
+    private var total = limit
 
     init {
         _releases.value = Resource.success(emptyList())
     }
 
     fun loadNewReleases(country: String = "GB") {
+        if(offset + limit <= total)
         newReleasesRepo.getNewReleases(country, offset, limit)
             .doOnSubscribe { _releases.postValue(Resource.loading(_releases.value?.data)) }
             .subscribeOn(io)
@@ -38,6 +40,10 @@ class NewReleasesViewModel @Inject constructor(
                 },
                 onSuccess = {
                     _releases.value = Resource.success(data = it.value?.items)
+                    it.value?.let { albums ->
+                        total = albums.total ?: limit
+                        offset += albums.items?.size ?: 0
+                    }
                 }
             ).addTo(disposables)
     }

@@ -11,7 +11,7 @@ interface NewReleasesService {
 
     @GET("v1/browse/new-releases")
     fun getNewAlbumReleases(
-        @Header("Authorization") token: String = BuildConfig.SPOTIFY_OAUTH_TOKEN,
+        @Header("Authorization") token: String = "Bearer ${BuildConfig.SPOTIFY_OAUTH_TOKEN}",
         @Query("country") country: String = "GB",
         @Query("offset") offset: String = "0",
         @Query("limit") limit: String = "20",

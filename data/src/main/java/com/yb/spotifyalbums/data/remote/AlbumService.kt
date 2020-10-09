@@ -11,7 +11,7 @@ interface AlbumService {
 
     @GET("v1/albums/{id}")
     fun getAlbumDetails(
-        @Header("Authorization") token: String = BuildConfig.SPOTIFY_OAUTH_TOKEN,
+        @Header("Authorization") token: String = "Bearer ${BuildConfig.SPOTIFY_OAUTH_TOKEN}",
         @Path("id") albumId: String
     ): Single<ApiAlbum>
 
