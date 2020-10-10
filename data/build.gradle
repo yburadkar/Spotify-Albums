@@ -38,6 +38,28 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    android {
+        sourceSets {
+            String sharedTestDir = "src/sharedTest/java"
+            String sharedTestResDir = "src/sharedTest/resources"
+            test {
+                java.srcDir sharedTestDir
+                java.srcDir sharedTestResDir
+            }
+            androidTest {
+                java.srcDir sharedTestDir
+                java.srcDir sharedTestResDir
+            }
+        }
+    }
+    testOptions{
+        animationsDisabled = true
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
 }
 
 dependencies {
@@ -58,6 +80,8 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timber_version"
 
     testImplementation "junit:junit:$junit_version"
+    testImplementation "com.google.code.gson:gson:$gson_version"
+
     androidTestImplementation "androidx.test.ext:junit:$junit_ext_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 
