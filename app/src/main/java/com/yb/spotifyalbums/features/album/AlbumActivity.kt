@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,13 @@ class AlbumActivity : AppCompatActivity() {
             val id = intent.getStringExtra(KEY_ALBUM_ID)!!
             viewModel.getAlbumDetails(id)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> { onBackPressed() }
+        }
+        return true
     }
 
     private fun setUpToolbar() {

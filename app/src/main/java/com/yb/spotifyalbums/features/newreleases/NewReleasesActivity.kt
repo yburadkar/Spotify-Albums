@@ -31,7 +31,7 @@ class NewReleasesActivity : AppCompatActivity() {
         setContentView(binding.root)
         setUpViews()
         observeViewModel()
-        viewModel.loadNewReleases()
+        if (savedInstanceState == null) viewModel.loadNewReleases()
     }
 
     private fun observeViewModel() {
