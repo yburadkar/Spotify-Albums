@@ -5,9 +5,9 @@ import com.yb.spotifyalbums.di.AppComponent
 import com.yb.spotifyalbums.di.DaggerAppComponent
 import timber.log.Timber
 
-class App : Application() {
+open class App : Application() {
 
-    lateinit var appComponent: AppComponent
+    open lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()

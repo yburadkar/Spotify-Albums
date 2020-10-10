@@ -14,7 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.yb.spotifyalbums.runner.CustomRunner"
     }
 
     buildTypes {
@@ -99,4 +99,8 @@ dependencies {
 
     androidTestImplementation "androidx.test.ext:junit:$junit_ext_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "com.google.code.gson:gson:$gson_version"
+    androidTestImplementation "io.mockk:mockk-android:$mockk_version"
+    androidTestImplementation "androidx.test:core-ktx:$androidx_test_core_version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
 }
