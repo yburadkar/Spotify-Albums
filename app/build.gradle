@@ -103,4 +103,5 @@ dependencies {
     androidTestImplementation "io.mockk:mockk-android:$mockk_version"
     androidTestImplementation "androidx.test:core-ktx:$androidx_test_core_version"
     kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
+    androidTestImplementation "androidx.arch.core:core-testing:$arch_core_testing_version"
 }
